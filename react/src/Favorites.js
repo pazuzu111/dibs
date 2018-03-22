@@ -7,26 +7,32 @@ const Favorites = props => {
 
         return  props.favs.map(x => {
                     return (
-                        <div key={x.props.integerId} className="post">
-                                <img src={x.props.image} alt={x.props.title} />
-                                <hr/>
-                                {x.props.price ?
-                                    <h3>{x.props.price.amounts.USD}</h3>
+                        <div key={x.integerId}>
+                                <img src={x.image} alt={x.title} />
+                                {x.price ?
+                                    <h3>{x.price.amounts.USD}</h3>
                                     :
                                     <h3>price upon request</h3>
                                 }
+                                <div>
+                                  <h2>{x.title}</h2>
+                                  <h3><span>{x.measurements.display}</span></h3>
+                                  <button>PURCHASE</button>
+                                  <button>MAKE OFFER!</button>
+                                </div>
+                                <div>
+                                  <h3><span>{x.description}</span></h3>
+                                  <h3>Creators: {x.creators}</h3>
+                                </div>
+                                <hr/>
                         </div>
                     )
                 })
     }
 
     return (
-        <div >
-            {props.favs ?
-                favs()
-                :
-                null
-            }
+        <div>
+            {favs()}
         </div>
     )
 }

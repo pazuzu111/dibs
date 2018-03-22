@@ -20,7 +20,7 @@ const Items = props => {
                                 }
                             </a>
 
-                            <LikeButton des={x} id={x.integerId} />
+                            <LikeButton des={x} id={x.integerId} title={x.title}/>
                         </div>
                     )
                 })

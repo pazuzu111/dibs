@@ -1,24 +1,6 @@
-
-/*.container {
-  display: flex;
-  justify-content: space-between;
-   flex-flow: row;
-  flex-wrap: wrap;
-   text-align: center;
-     flex: 0 0 100%;
-
-
-}
-
-.item {
-  flex:1;
-   width: 32%;
-    padding: .8em 1em 0;
-  margin-bottom: 1em;
-  transition: background-color 0.3s ease;
-  border-radius: 3px;
-}
-*/
+/** {
+    margin: 0;
+}*/
 span {
     font-weight: 100;
 }
@@ -26,7 +8,6 @@ span {
 body {
     margin: 0;
     text-align: center;
-
 }
 
 nav {
@@ -84,8 +65,15 @@ li {
     cursor: pointer;
 }
 
-
 img {
+    transition: 1s;
+    cursor: pointer;
+}
+
+img:hover {
+    transform: scale(1.1);
+    transition: 1s;
+    cursor: pointer;
 }
 
 h1 {
@@ -143,6 +131,12 @@ button:hover {
 
 .posts {
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.favs {
+    display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }

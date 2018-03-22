@@ -6,19 +6,31 @@ export default class LikeButton extends Component {
         super(props)
 
         this.state = {
-          liked: 'false'
+            liked: false
         }
     }
 
+
     componentDidMount() {
-      console.log(this.state.liked)
+
+        let fav = localStorage.getItem(`${this.props.title}`)
+
+        if(fav == null){fav = false}
+        console.log(`ls: ${fav}`, this.state.liked)
+        this.setState({
+            liked: JSON.parse(fav)
+        })
     }
+
 
     //toggle liked state to true or false
     toggleLike = () => {
-        this.setState({
-            liked: !this.state.liked
-        })
+
+        this.setState(prevState => ({
+            liked: !prevState.liked
+        }),() => {
+            localStorage.setItem(`${this.props.title}`, this.state.liked)
+            })
     }
 
     //onClick save item to favorites
@@ -32,11 +44,8 @@ export default class LikeButton extends Component {
             },
             body: JSON.stringify(data)
         })
-        .then(res => {
-            // console.log(name)
-            // console.log("POST")
-            // console.log(this.state.liked, "after click")
-        })
+        console.log(this.state.liked, "like action")
+
     }
 
     //onClick remove item from favorites
@@ -44,52 +53,28 @@ export default class LikeButton extends Component {
         this.toggleLike()
 
         fetch(`browse/favs/${id}`, {
-                method: 'DELETE',
-              })
-              .then(res => res.json())
-              .then(res => {
-                  // console.log('*************');
-                  // console.log('DELETE');
-                  // console.log(this.state.liked, "after click")
-              }).catch(err => console.log(err))
+            method: 'DELETE',
+        })
+        console.log(this.state.liked, "unlike action")
 
     }
 
     //if state of liked is false make a POST request else make a DELETE request
     methodHandle = (props) => {
-        return  (this.state.liked === 'false') ?
+        return  (this.state.liked === false) ?
                         this.like(this.props.des)
                         :
                         this.unlike(this.props.id)
-
     }
 
     render () {
 
-        // const on = {
-        //     background: 'red',
-        //     color: 'white',
-        //     outline: 'none',
-        //     transition: '1s',
-        //     cursor: 'pointer'
-        // }
-
-        // const off = {
-        //     background: 'transparent',
-        //     color: 'grey',
-        //     outline: 'none',
-        //     transition: '1s',
-        //     cursor: 'pointer',
-        // }
-
         return (
                 <i
-                   className={this.state.liked ? "far fa-heart" : "fa fa-heart"}
+                   className={this.state.liked ? "fa fa-heart" : "far fa-heart"}
                    onClick={e => this.methodHandle(this.props)}>
                 </i>
 
-          )
-
+        )
     }
-
 }
