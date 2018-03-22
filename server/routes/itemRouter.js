@@ -21,12 +21,4 @@ itemRouter.get('/:id', (req, res) => {
     res.status(200).json(item);
 });
 
-// itemRouter.post('/', (req, res) => {
-
-//   favorites << req.body
-
-//   console.log(req.body)
-
-// })
-
 module.exports = itemRouter;
