@@ -6,12 +6,11 @@ const path = require('path')
 app.use('/browse', require('./routes/browseRouter'));
 app.use('/item', require('./routes/itemRouter'));
 
-app.use(express.static(__dirname + '/public'));
 
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(port, function () {
