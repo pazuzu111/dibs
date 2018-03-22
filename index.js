@@ -16,7 +16,7 @@ app.use('/item', require('./server/routes/itemRouter'));
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(port, function () {
