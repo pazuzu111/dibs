@@ -9,10 +9,24 @@ const getItem = function (itemId) {
     }) || {};
 };
 
+const getfavorite = function (itemId) {
+    return favorites.find(function (item) {
+        return item.id === itemId || item.integerId === itemId;
+    }) || {};
+};
+
 itemRouter.get('/:id', (req, res) => {
     const id = req.params.id;
     const item = getItem(id);
     res.status(200).json(item);
 });
+
+// itemRouter.post('/', (req, res) => {
+
+//   favorites << req.body
+
+//   console.log(req.body)
+
+// })
 
 module.exports = itemRouter;
