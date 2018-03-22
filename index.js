@@ -13,7 +13,7 @@ app.use(express.static('build'));
 
 app.get('*', function (req, res) {
   res.sendFile("index.html", { root: path.join(__dirname, 'public') })
-})
+});
 
 app.listen(port, function () {
     console.log('Example app listening at localhost:%s', port);
