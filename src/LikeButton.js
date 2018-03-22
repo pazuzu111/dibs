@@ -3,14 +3,13 @@ import React, { Component } from 'react';
 export default class LikeButton extends Component {
     constructor(props) {
         super(props)
-
+        console.log(this.props)
         this.state = {
             liked: false
         }
     }
 
     componentDidMount() {
-
         let fav = localStorage.getItem(`${this.props.title}`)
 
         if(fav == null){fav = false}
@@ -43,11 +42,15 @@ export default class LikeButton extends Component {
     //onClick remove item from favorites
     unlike = (id) => {
         this.toggleLike()
-
+        console.log(this.props.view)
         fetch(`browse/favs/${id}`, {
             method: 'DELETE',
+        }).then(res => {
+            if(this.props.view === "favs")
+            {
+              this.props.showFavs()
+            }
         })
-        .then(this.props.showFavs())
     }
 
     //if state of liked is false make a POST request else make a DELETE request

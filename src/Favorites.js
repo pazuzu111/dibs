@@ -9,7 +9,7 @@ const Favorites = props => {
         return  props.favs.map(x => {
                     return (
                         <div key={x.integerId} className="favs">
-                                <LikeButton des={x} id={x.integerId} title={x.title} showFavs={props.showFavs}/>
+                                <LikeButton des={x} id={x.integerId} title={x.title} showFavs={props.showFavs} view={props.view} />
 
                                 <img src={x.image} alt={x.title} />
                                 {x.price ?

@@ -71,7 +71,8 @@ export default class App extends Component {
                     data={this.state.data}
                     item={this.state.item}
                     view={this.state.view}
-                    showItem={this.showItem}/>)
+                    showItem={this.showItem}
+                    showFavs={this.showFavs}/>)
 
     let button = ((this.state.view !== 'item') && (this.state.view !== 'favs')) ?
                         <button onClick={this.getData}> LOAD MORE </button>
