@@ -9,9 +9,10 @@ app.use('/item', require('./server/routes/itemRouter'));
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static('./build'));
 // }
+app.use(express.static('public'));
 
 app.get('*', function (req, res) {
-  res.sendFile("index.html", { root: path.join(__dirname, 'public') })
+  res.sendFile("index.html", { root: path.join(__dirname, 'build') })
 });
 
 app.listen(port, function () {
