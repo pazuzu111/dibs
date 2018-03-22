@@ -11,8 +11,8 @@ app.use('/item', require('./server/routes/itemRouter'));
 // }
 app.use(express.static('build'));
 
-app.get('*', function (req, res) {
-  res.sendFile('index.html');
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port, function () {
