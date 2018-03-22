@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeButton from './LikeButton'
 
 const Favorites = props => {
 
@@ -7,7 +8,9 @@ const Favorites = props => {
 
         return  props.favs.map(x => {
                     return (
-                        <div key={x.integerId}>
+                        <div key={x.integerId} className="favs">
+                                <LikeButton des={x} id={x.integerId} title={x.title} showFavs={props.showFavs}/>
+
                                 <img src={x.image} alt={x.title} />
                                 {x.price ?
                                     <h3>{x.price.amounts.USD}</h3>
@@ -31,7 +34,7 @@ const Favorites = props => {
     }
 
     return (
-        <div>
+        <div className="posts">
             {favs()}
         </div>
     )

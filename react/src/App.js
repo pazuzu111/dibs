@@ -79,14 +79,14 @@ export default class App extends Component {
                         <button onClick={this.home}><i className="fas fa-long-arrow-alt-left fa-2x"></i></button>
 
     let renderPage = this.state.view === 'favs' ?
-                        <Favorites favs={this.state.favs} />
+                        <Favorites favs={this.state.favs} showFavs={this.showFavs} />
                         :
                         items
     return (
         <div>
             <nav>
                 <ul>
-                    <li onClick={this.home}><img src='./dibs.png' alt='diblogo' /></li>
+                    <li onClick={this.home}><img id="diblogo" src='./dibs.png' alt='diblogo' /></li>
                     <li><button id="favs" onClick={this.showFavs}><i className="fa fa-heart"></i></button></li>
                 </ul>
             </nav>
