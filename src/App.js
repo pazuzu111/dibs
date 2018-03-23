@@ -27,7 +27,7 @@ export default class App extends Component {
 
     getData = () => {
 
-        fetch(`/browse/?start=${this.state.start}`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://firstdibs.herokuapp.com/browse/?start=${this.state.start}`)
         .then(res => res.json())
         .then(res => {
             this.setState(state => ({
@@ -39,7 +39,7 @@ export default class App extends Component {
     }
 
     showItem = (id) => {
-        fetch(`/item/${id}`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://firstdibs.herokuapp.com/item/${id}`)
         .then(res => res.json())
         .then(res => {
             this.setState({
@@ -50,7 +50,7 @@ export default class App extends Component {
     }
 
     showFavs = () => {
-        fetch(`/browse/favs`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://firstdibs.herokuapp.com/browse/favs`)
         .then(res => res.json())
         .then(res => {
             this.setState({
