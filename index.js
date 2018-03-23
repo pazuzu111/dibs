@@ -14,9 +14,10 @@ app.use('/item', require('./server/routes/itemRouter'));
 //   res.sendFile("index.html", { root: path.join(__dirname, 'build') })
 // });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('./build'));
-}
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.listen(port, function () {
     console.log('Example app listening at localhost:%s', port);
