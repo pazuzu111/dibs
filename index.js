@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 
 setInterval(function() {
-    http.get("https://firstdibs.herokuapp.com/browse/");
+    http.get("http://firstdibss.surge.sh/");
 }, 1200000);
 
 app.listen(port, function () {
