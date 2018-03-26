@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 const path = require('path')
 const http = require("http");
+const cors = require('cors');
 
 app.use('/browse', require('./server/routes/browseRouter'));
 app.use('/item', require('./server/routes/itemRouter'));
