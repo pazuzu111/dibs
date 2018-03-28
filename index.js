@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 setInterval(function() {
     http.get("https://firstdibs.herokuapp.com/browse/");
-}, 1200000);
+}, 600000);
 
 app.listen(port, function () {
     console.log('Example app listening at localhost:%s', port);
