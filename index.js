@@ -9,6 +9,7 @@ app.use(cors())
 app.use('/browse', require('./server/routes/browseRouter'));
 app.use('/item', require('./server/routes/itemRouter'));
 
+
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static('./build'));
 // }
@@ -23,11 +24,11 @@ app.get('/', (req, res) => {
 });
 
 
-setInterval(function() {
-    http.get("https://firstdibs.herokuapp.com/browse/");
-}, 600000);
-
 app.listen(port, function () {
     console.log('Example app listening at localhost:%s', port);
 });
 
+
+setInterval(function() {
+    http.get("https://firstdibs.herokuapp.com/browse/");
+}, 300000);
