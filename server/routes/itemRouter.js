@@ -2,6 +2,7 @@ const express = require('express');
 const cachedItems = require('../data/items.json');
 
 const itemRouter = express.Router();
+const cors = require('cors');
 
 const getItem = function (itemId) {
     return cachedItems.find(function (item) {
@@ -15,7 +16,7 @@ const getfavorite = function (itemId) {
     }) || {};
 };
 
-itemRouter.get('/:id', (req, res) => {
+itemRouter.get('/:id', cors(), (req, res) => {
     const id = req.params.id;
     const item = getItem(id);
     res.status(200).json(item);
