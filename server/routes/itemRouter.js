@@ -1,5 +1,9 @@
 const express = require('express');
 const cachedItems = require('../data/items.json');
+const app = express();
+
+const cors = require('cors');
+
 
 const itemRouter = express.Router();
 
@@ -14,6 +18,8 @@ const getfavorite = function (itemId) {
         return item.id === itemId || item.integerId === itemId;
     }) || {};
 };
+
+itemRouter.use(cors())
 
 itemRouter.get('/:id', (req, res) => {
     const id = req.params.id;

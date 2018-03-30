@@ -2,6 +2,8 @@ const express = require('express');
 const cachedItems = require('../data/items.json');
 const browseRouter = express.Router();
 
+const cors = require('cors');
+
 var bodyParser = require('body-parser');
 
 let favorites = []
@@ -25,6 +27,7 @@ const getfavorite = function (itemId) {
 };
 
 //for parsing body requests
+browseRouter.use(cors())
 browseRouter.use(bodyParser.json());
 browseRouter.use(bodyParser.urlencoded({ extended: true }));
 
