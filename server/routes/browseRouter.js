@@ -1,7 +1,6 @@
 const express = require('express');
 const cachedItems = require('../data/items.json');
 const browseRouter = express.Router();
-const cors = require('cors');
 
 var bodyParser = require('body-parser');
 
@@ -37,14 +36,14 @@ browseRouter.get('', cors(),(req, res) => {
 });
 
 //output favs
-browseRouter.get('/favs', cors(), (req, res) => {
+browseRouter.get('/favs', (req, res) => {
 
     //respond with JSON
     res.status(200).json(favorites);
 });
 
 //output fav by id
-browseRouter.get('/favs/:id', cors(), (req, res) => {
+browseRouter.get('/favs/:id', (req, res) => {
     const id = req.params.id;
     const item = getfavorite(id);
 
@@ -52,7 +51,7 @@ browseRouter.get('/favs/:id', cors(), (req, res) => {
     res.status(200).json(item);
 });
 
-browseRouter.post('/favs', cors(), (req, res) => {
+browseRouter.post('/favs', (req, res) => {
 
     //push into favorites array
     favorites.push(req.body)
@@ -61,7 +60,7 @@ browseRouter.post('/favs', cors(), (req, res) => {
     res.json(favorites)
 });
 
-browseRouter.delete('/favs/:id', cors(),  (req, res) => {
+browseRouter.delete('/favs/:id',  (req, res) => {
     const item = getfavorite(req.params.id);
     const index = favorites.indexOf(item)
 
